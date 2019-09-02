@@ -28,7 +28,7 @@ class LogConsulta {
     }
     
     private function gravarArquivo($data, $ip, $pagina){
-        file_put_contents($this->caminho.'/log_geral.txt', $data. " - ". $ip ." - ". $pagina);
+        file_put_contents($this->caminho.'/log_geral.txt',$data. " - ". $ip ." - ". $pagina.";");
         
     }
     
@@ -38,4 +38,14 @@ class LogConsulta {
         return $dados;
     }
 
+     public function capturarUltimo(){
+        
+        $dados = file_get_contents($this->caminho.'/log_geral.txt');
+        $texto = explode(';', $dados);
+        $texto = array_reverse($texto);
+        
+        
+       
+        return $texto [1];
+    }
 }
