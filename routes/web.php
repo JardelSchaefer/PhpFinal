@@ -18,4 +18,4 @@ route::get('/ClienteForm', 'ClienteFormController@ClienteForm');
 route::get('/CategoriaForm', 'CategoriaFormController@CategoriaForm');
 route::get('/ProdutoForm', 'ProdutoFormController@ProdutoForm');
 
-route::resource('categoria', 'CategoriaController');
+route::resource('/categoria', 'CategoriaController');

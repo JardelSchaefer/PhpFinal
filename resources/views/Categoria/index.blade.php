@@ -9,6 +9,15 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <script>
+        window.onload = function () {
+            @if(session()->get('msg'))
+            alert('{{session()->get('msg')}}');
+            @endif
+    };
+        </script>
+        
+        
         <!-- Styles -->
       
     </head>
@@ -32,7 +41,16 @@
         <tr>
     <td>{{$c->codcat}}</td>
     <td>{{$c->nomcat}}</td>
-    <td>Editar | Excluir</td>
+    <td>
+        
+        <button onclick="location.href='{{route('categoria.edit', $c->codcat)}}'" type="button">Editar</button>
+    
+        <form action="{{route('categoria.destroy', $c->codcat)}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Excluir</button>
+        </form>
+    </td>
 
             
         </tr>
