@@ -8,5 +8,5 @@ class Categoria extends Model {
 
     protected $table = 'categoria';
     protected $primaryKey = 'codcat';
-
+    protected $nome = 'nomcat';
 }

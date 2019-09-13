@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -23,44 +24,36 @@
       
     </head>
     <body>
-        <a href="{{route('cliente.create')}}">Adicionar Cliente</a>
+        <a href="{{route('produto.create')}}">Adicionar Produto</a>
         
-        <!-- Listagem de clientes -->
+        <!-- Listagem de produto -->
         <table style="width: 50%;">
             <thead>
                 <tr>
                     <td>Cód</td>
                     <td>Nome</td>
-                    <td>CPF</td>
-                    <td>Endereço</td>
-                    <td>Número</td>
-                    <td>Bairro</td>
-                    <td>Cidade</td>
-                    <td>UF</td>
-                    <td>Telefone</td> 
+                    <td>Descrição</td>
+                    <td>Preço</td>
                     <td>Ação</td>
                 </tr>
             </thead>
        
         
     <tbody>
-        @foreach ($cliente as $c)
+        @foreach ($produto as $c)
+
+        
         
         <tr>
-    <td>{{$c->codcli}}</td>
-    <td>{{$c->nomcli}}</td>
-    <td>{{$c->cpfcli}}</td>
-    <td>{{$c->endcli}}</td>
-    <td>{{$c->numcli}}</td>
-    <td>{{$c->baicli}}</td>
-    <td>{{$c->cidcli}}</td>
-    <td>{{$c->ufcli}}</td>
-    <td>{{$c->telcli}}</td>    
+    <td>{{$c->codpro}}</td>
+    <td>{{$c->nompro}}</td>
+    <td>{{$c->despro}}</td>
+    <td>{{$c->vlrpro}}</td>
     <td>
         
-        <button onclick="location.href='{{route('cliente.edit', $c->codcli)}}'" type="button">Editar</button>
+        <button onclick="location.href='{{route('produto.edit', $c->codpro)}}'" type="button">Editar</button>
     
-        <form action="{{route('cliente.destroy', $c->codcli)}}" method="post">
+        <form action="{{route('produto.destroy', $c->codpro)}}" method="post">
             @csrf
             @method('DELETE')
             <button type="submit">Excluir</button>

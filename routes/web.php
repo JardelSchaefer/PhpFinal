@@ -20,3 +20,4 @@ route::get('/ProdutoForm', 'ProdutoFormController@ProdutoForm');
 
 route::resource('/categoria', 'CategoriaController');
 route::resource('/cliente', 'ClienteController');
+route::resource('/produto', 'ProdutoController');
