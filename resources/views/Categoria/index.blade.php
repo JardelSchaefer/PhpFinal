@@ -1,4 +1,4 @@
-<!doctype html>
+@extends('site.layout')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="" rel="stylesheet">
 
         <script>
         window.onload = function () {
@@ -25,7 +26,7 @@
         <a href="{{route('categoria.create')}}">Adicionar Categoria</a>
         
         <!-- Listagem de categorias -->
-        <table style="width: 50%;">
+        <table class="tabela-categoria"style="width: 50%;">
             <thead>
                 <tr>
                     <td>Cód</td>

@@ -16,14 +16,36 @@
     </head>
     <body>
     
-        <h3>Editando cliente: {{$cliente->nomcat}}</h3>
+        <h3>Editando cliente: {{$cliente->nomcli}}</h3>
         
-        <form action="{{route('cliente.update', $cliente->codcat)}}" method="post">
+        <form action="{{route('cliente.update', $cliente->codcli)}}" method="post">
             @csrf
             @method('patch')
             
             <label for="nomcli">Nome da cliente</label><br/>
-            <input type="text" name="nomcli" id="nomcat" value="{{$cliente->nomcat}}"/><br/><br/>
+            <input type="text" name="nomcli" id="nomcli" value="{{$cliente->nomcli}}"/><br/><br/>
+            
+            <label for="cpfcli">CPF</label><br/>
+            <input type="text" name="cpfcli" id="cpfcli" value="{{$cliente->cpfcli}}"/><br/><br/>
+            
+            <label for="endcli">Endereço</label><br/>
+            <input type="text" name="endcli" id="endcli" value="{{$cliente->endcli}}"/><br/><br/>
+            
+            <label for="numcli">Nº</label><br/>
+            <input type="text" name="numcli" id="numcli" value="{{$cliente->numcli}}"/><br/><br/>
+            
+            <label for="baicli">Bairro</label><br/>
+            <input type="text" name="baicli" id="baicli" value="{{$cliente->baicli}}"/><br/><br/>
+            
+            <label for="cidcli">Cidade</label><br/>
+            <input type="text" name="cidcli" id="cidcli" value="{{$cliente->cidcli}}"/><br/><br/>
+            
+            <label for="ufcli">Estado</label><br/>
+            <input type="text" name="ufcli" id="ufcli" value="{{$cliente->ufcli}}"/><br/><br/>
+            
+            <label for="telcli">Telefone</label><br/>
+            <input type="text" name="telcli" id="telcli" value="{{$cliente->telcli}}"/><br/><br/>
+            
             <button type="submit">Editar</button>
         </form> 
         

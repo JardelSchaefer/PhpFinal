@@ -37,7 +37,7 @@ class ClienteController extends Controller
     {
          $cliente = new \App\Cliente();
     
-    $cliente->nomcat = $request->get('nomcli');
+    $cliente->nomcli = $request->get('nomcli');
     
     $cliente->save();
     
@@ -76,8 +76,15 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $codcli)
     {
-           $cliente = \App\Categoria::find($codcli);
-       $cliente->nomcat = $request->get('nomcli');
+       $cliente = \App\Cliente::find($codcli);
+       $cliente->nomcli = $request->get('nomcli');
+       $cliente->cpfcli = $request->get('cpfcli');
+       $cliente->endcli = $request->get('endcli');
+       $cliente->numcli = $request->get('numcli');
+       $cliente->baicli = $request->get('baicli');
+       $cliente->cidcli = $request->get('cidcli');
+       $cliente->ufcli = $request->get('ufcli');
+       $cliente->telcli = $request->get('telcli');
        $cliente->save();
        
        return redirect('/cliente')->with('alterado', 'Cliente alterado com sucesso');

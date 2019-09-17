@@ -38,7 +38,10 @@ class ProdutoController extends Controller
          $produto = new \App\Produto();
     
     $produto->nompro = $request->get('nompro');
-    
+    $produto->despro = $request->get('despro');
+    $produto->vlrpro = $request->get('vlrpro');
+    $produto->codpro = $request->get('codpro');
+
     $produto->save();
     
    return redirect('/produto')->with('msg', 'Produto cadastrado com sucesso!');
@@ -76,8 +79,10 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $codpro)
     {
-           $produto = \App\Produto::find($codpro);
+       $produto = \App\Produto::find($codpro);
        $produto->nompro = $request->get('nompro');
+       $produto->despro = $request->get('despro');
+       $produto->vlrpro = $request->get('vlrpro');
        $produto->save();
        
        return redirect('/produto')->with('alterado', 'Produto alterado com sucesso');
