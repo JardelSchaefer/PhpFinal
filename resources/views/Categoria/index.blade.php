@@ -1,7 +1,8 @@
-@extends('site.layout')
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
@@ -25,6 +26,34 @@
     <body>
         <a href="{{route('categoria.create')}}">Adicionar Categoria</a>
         
+        <script>
+            function eliminarCategoria(idForm, destino){
+              
+        dadosForm = $('#'+idForm).serialize();
+                
+                $.ajax({
+                    
+                    method:'post',
+                    url:destino,
+                    data: dadosForm,
+                    dataType:'html',
+                    success: function(data){
+                        if (data == 'true'){
+                            $('#linha'+idForm).remove();
+                        }else{
+                            alert('Deu errado');
+                        }
+                       
+                    },
+                    error: function(argument){
+                       alert('Num sei'); 
+                    }
+                });
+                return false;
+            }
+        
+        </script>
+        
         <!-- Listagem de categorias -->
         <table class="tabela-categoria"style="width: 50%;">
             <thead>
@@ -39,14 +68,14 @@
     <tbody>
         @foreach ($categoria as $c)
         
-        <tr>
+        <tr id="linhadel{{$c->codcat}}">
     <td>{{$c->codcat}}</td>
     <td>{{$c->nomcat}}</td>
     <td>
         
         <button onclick="location.href='{{route('categoria.edit', $c->codcat)}}'" type="button">Editar</button>
     
-        <form action="{{route('categoria.destroy', $c->codcat)}}" method="post">
+        <form onsubmit="return eliminarCategoria('del{{$c->codcat}}','{{route('categoria.destroy', $c->codcat)}}');" id="del{{$c->codcat}}" action="{{route('categoria.destroy', $c->codcat)}}" method="post">
             @csrf
             @method('DELETE')
             <button type="submit">Excluir</button>
