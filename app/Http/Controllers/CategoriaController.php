@@ -18,19 +18,16 @@ class CategoriaController extends Controller
 public function store(Request $request){
     
     $categoria = new \App\Categoria();
-    
     $categoria->nomcat = $request->get('nomcat');
-    
     $categoria->save();
-    
-   return redirect('/categoria')->with('msg', 'Categoria cadastrada com sucesso!');
-    
+    return "true";
+ 
    }
    public function destroy($codcat){
        $categoria = \App\Categoria::find($codcat);
        $categoria->delete();
        
-       return redirect('/categoria')->with('catEliminar', 'Categoria eliminada');
+       return "true";
    }
    public function edit($codcat) {
        $categoria = \App\Categoria::find($codcat);
