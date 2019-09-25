@@ -1,0 +1,41 @@
+.tabela-categoria{
+    width: 50%;
+    margin:auto
+    
+}
+
+.sucesso{
+    background-color: #90ee90;
+    font-style: italic;
+    width: 170px;
+    height: 50px;
+    border: 1px solid #237e00;
+}
+
+.falha{
+    background-color: #ff6257;
+    font-style: italic;
+    width: 170px;
+    height: 50px;
+    border: 1px solid #a52100;
+}
+
+#status{
+    text-align: center;
+    display: block;
+    margin:auto;
+    position: relative;
+    vertical-align: central;
+}
+
+#caixa-status{
+    border-radius: 4px;
+    position:relative;
+    margin-top: 15px;
+    float:right;
+    padding-bottom: 23px;
+    padding-right: 40px;
+    z-index: 99;
+  
+}
+

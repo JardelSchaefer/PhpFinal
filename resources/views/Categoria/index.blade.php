@@ -1,14 +1,12 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link rel="stylesheet" href="{{ url('/') }}/css/categoria.css">
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -28,7 +26,7 @@
 
 
         <!-- Listagem de categorias -->
-        <table border="1" class="table table-dark tabela-categoria" style="width: 50%; margin:auto">
+        <table border="1" class="tabela-categoria" >
             <thead class="thead-dark">
                 <tr>
                     <td>Cód</td>

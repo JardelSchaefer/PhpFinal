@@ -39,8 +39,8 @@ public function store(Request $request){
        $categoria->nomcat = $request->get('nomcat');
        $categoria->save();
        
-       return redirect('/categoria')->with('alterada', 'Categoria alterada com sucesso');
-
+      // return redirect('/categoria')->with('alterada', 'Categoria alterada com sucesso');
+       return "true";
    }
    
 }
